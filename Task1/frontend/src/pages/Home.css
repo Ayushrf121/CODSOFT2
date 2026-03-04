@@ -1,0 +1,143 @@
+.hero {
+  height: 90vh;
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url("https://images.unsplash.com/photo-1492724441997-5dc865305da7");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  padding: 20px;
+}
+
+.hero-content {
+  max-width: 700px;
+}
+
+.hero h1 {
+  font-size: 42px;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.features {
+  padding: 60px 0;
+  text-align: center;
+}
+
+.features h2 {
+  margin-bottom: 40px;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.feature-card {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  transition: 0.3s;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.feature-icon {
+  font-size: 35px;
+  color: var(--primary);
+  margin-bottom: 15px;
+}
+
+.info-section {
+  padding: 60px 0;
+  background: #f1f5f9;
+}
+
+.info-content {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.info-text {
+  flex: 1;
+}
+
+.info-text h2 {
+  margin-bottom: 20px;
+}
+
+.info-text p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.info-image {
+  flex: 1;
+}
+
+.info-image img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* 🔥 Responsive */
+@media (max-width: 768px) {
+
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .info-content {
+    flex-direction: column;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+}
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px 22px;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+.primary-btn {
+  background: var(--primary);
+  color: white;
+  font-size: 18px;
+  background-color: rgb(70, 70, 218);
+}
+
+
+.secondary-btn {
+  background: rgb(195, 55, 55);
+  font-size: 18px;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
