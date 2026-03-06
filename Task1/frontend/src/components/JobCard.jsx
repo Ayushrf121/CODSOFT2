@@ -1,24 +1,22 @@
-import { Link } from "react-router-dom";
-import { FaMapMarkerAlt, FaMoneyBill } from "react-icons/fa";
-import "./JobCard.css";
+import { useNavigate } from "react-router-dom";
+import { FaArrowRight } from "react-icons/fa";
 
 function JobCard({ job }) {
+  const navigate = useNavigate();
+
+  const handleView = () => {
+    navigate(`/jobs/${job._id}`);
+  };
+
   return (
     <div className="job-card">
-      <div className="job-title">{job.title}</div>
+      <h3>{job.title}</h3>
+      <p><b>Company:</b> {job.company}</p>
+      <p><b>Location:</b> {job.location}</p>
 
-      <div className="job-meta">
-        <span><FaMapMarkerAlt /> {job.location}</span>
-        <span><FaMoneyBill /> {job.salary}</span>
-      </div>
-
-      <p style={{ marginTop: "10px", fontSize: "14px" }}>
-        {job.description.substring(0, 80)}...
-      </p>
-
-      <Link to={`/jobs/${job._id}`} className="job-btn">
-        View Details
-      </Link>
+      <button className="view-btn" onClick={handleView}>
+        View Details <FaArrowRight className="arrow-icon" />
+      </button>
     </div>
   );
 }
