@@ -12,15 +12,18 @@ function Navbar() {
     <div className="navbar">
       <div className="container navbar-content">
 
+        {/* LOGO */}
         <Link to="/" className="logo">
           <FaBriefcase />
           JobBoard
         </Link>
-        
+
+        {/* HAMBURGER ICON */}
         <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
           {menuOpen ? <FaTimes /> : <FaBars />}
         </div>
 
+        {/* NAV LINKS */}
         <div className={`nav-links ${menuOpen ? "active" : ""}`}>
 
           <Link to="/jobs" onClick={() => setMenuOpen(false)}>
