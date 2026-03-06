@@ -56,3 +56,22 @@ export const getApplicationsForEmployer = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+// CANDIDATE VIEW THEIR APPLICATIONS
+export const getApplicationsForCandidate = async (req, res) => {
+  try {
+    if (req.user.role !== "candidate") {
+      return res.status(403).json({ message: "Only candidates allowed" });
+    }
+
+    const applications = await Application.find({
+      candidate: req.user._id,
+    })
+      .populate("job")
+      .populate("candidate", "name email");
+
+    res.json(applications);
+
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
