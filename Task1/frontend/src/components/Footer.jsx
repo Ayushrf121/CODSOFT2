@@ -7,7 +7,6 @@ function Footer() {
     <footer className="footer">
       <div className="container footer-container">
 
-        {/* LEFT SECTION */}
         <div className="footer-about">
           <h2 className="footer-logo">JobBoard</h2>
           <p>
@@ -16,7 +15,6 @@ function Footer() {
           </p>
         </div>
 
-        {/* QUICK LINKS */}
         <div className="footer-links">
           <h3>Quick Links</h3>
           <Link to="/">Home</Link>
@@ -25,7 +23,6 @@ function Footer() {
           <Link to="/register">Register</Link>
         </div>
 
-        {/* CONTACT */}
         <div className="footer-contact">
           <h3>Contact</h3>
           <p>Email: support@jobboard.com</p>
