@@ -2,11 +2,12 @@ import { useState, useEffect, useContext } from "react";
 import API from "../api/axios";
 import { AuthContext } from "../context/AuthContext";
 import "./EmployerDashboard.css";
+import { useNavigate } from "react-router-dom";
 
 function EmployerDashboard() {
   const { user } = useContext(AuthContext);
   const token = user?.token;
-
+  const navigate = useNavigate();
   const [form, setForm] = useState({
     title: "",
     company: "",
@@ -28,22 +29,24 @@ function EmployerDashboard() {
     );
     setJobs(myJobs);
   };
-
+  
   useEffect(() => {
     fetchJobs();
   }, []);
-
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    
     await API.post("/jobs", form, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     });
-
+    
     alert("Job Posted Successfully");
+    
     fetchJobs();
+    navigate('/jobs');
   };
 
   return (
