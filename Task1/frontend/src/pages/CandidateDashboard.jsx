@@ -9,22 +9,28 @@ function CandidateDashboard() {
   const [applications, setApplications] = useState([]);
 
   useEffect(() => {
-    const fetchApplications = async () => {
-      const { data } = await API.get("/applications/employer", {
+  const fetchApplications = async () => {
+    try {
+      const { data } = await API.get("/applications/candidate", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
-
+      console.log(data);
       const myApps = data.filter(
         (app) => app.candidate._id === user.user._id
       );
 
       setApplications(myApps);
-    };
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
+  if (token) {
     fetchApplications();
-  }, []);
+  }
+}, [token, user]);
 
   return (
     <div className="container dashboard" style={{ padding: "40px 0" }}>
